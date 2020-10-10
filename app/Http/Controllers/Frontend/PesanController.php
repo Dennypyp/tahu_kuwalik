@@ -81,7 +81,7 @@ class PesanController extends Controller
             // $pesan->image = $filename;
             $pesan->status = "belum lunas";
             $pesan->save();
-            return redirect()->route('/register');
+            return redirect('/register');
         }
 
     }
