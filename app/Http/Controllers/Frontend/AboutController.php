@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use App\Pesan;
@@ -17,8 +18,13 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $pesan = Pesan::all();
-        return view("frontend.about.index", ['pesan' => $pesan]);
+        if(Auth::check()){
+            $pesan = Pesan::where('email',Auth()->user()->email)->get();
+            return view("frontend.about.index", ['pesan' => $pesan]);
+        }else{
+            return redirect('/');
+        }
+
     }
 
     /**

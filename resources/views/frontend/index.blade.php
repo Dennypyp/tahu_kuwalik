@@ -40,7 +40,7 @@
         </div>
 
         <div class="row content">
-            
+
             <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="300">
                 <p>
                     Tahu Kuwalik adalah makanan ringan yang sangat renyah. Terbuat dari tahu yang mempunyai beberapa varian.
@@ -51,9 +51,9 @@
                 Pesan Sekarang!!!
               </button>
             {{-- <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="150">
-                
+
                     <a href="https://api.whatsapp.com/send?phone=628155106629" target="_blank" class="pesan btn btn-dark btn-lg btn-block">Pesan Sekarang!!!</a>
-                
+
             </div> --}}
         </div>
 
@@ -139,7 +139,7 @@
             <h2>Varian</h2>
         </div>
 
-       
+
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="400">
             @foreach ($portfolio as $item)
             <div class="col-lg-4 col-md-6 portfolio-item {{$item->filter}}">
@@ -285,7 +285,7 @@
                     <label for="exampleInputEmail1">Nama Pelanggan</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" name="nama">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="exampleInputEmail1">Alamat</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" name="alamat">
@@ -295,38 +295,38 @@
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Rasa Original" name="varian">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Rasa Original" name="varian1">
                                 <label class="form-check-label" for="inlineCheckbox1">Rasa Original</label>
                             </div>
                             </div>
                         </div>
-                            
+
                             <div class="col-lg-3">
                                 <div class="form-group">
                                 <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Rasa Keju" name="varian">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Rasa Keju" name="varian2">
                                 <label class="form-check-label" for="inlineCheckbox1">Rasa Keju</label>
                             </div>
                             </div>
                         </div>
-                        
-                        
+
+
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Rasa Balado" name="varian">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Rasa Balado" name="varian3">
                                 <label class="form-check-label" for="inlineCheckbox1">Rasa Balado</label>
                             </div>
                         </div>
                     </div>
-                        
+
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Rasa BBQ" name="varian">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Rasa BBQ" name="varian4">
                                             <label class="form-check-label" for="inlineCheckbox2">Rasa BBQ</label>
                                     </div>
-                                
+
                             </div>
                         </div>
                     </div>

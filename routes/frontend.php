@@ -6,7 +6,11 @@ Route::name('frontend.')->group(function(){
         Route::resource('/', 'HomeController');
         Route::resource('portofolio', 'PortofolioController');
         Route::resource('pesan', 'PesanController');
-        Route::resource('about-us', 'AboutController');
+
+        Route::group(['aut' => ['CheckRole:customer']], function () {
+            Route::resource('about-us', 'AboutController');
+        });
+
     });
 });
 

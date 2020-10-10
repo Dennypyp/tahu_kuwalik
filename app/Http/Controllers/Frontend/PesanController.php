@@ -30,7 +30,7 @@ class PesanController extends Controller
     public function create()
     {
         //
-        
+
     }
 
     /**
@@ -46,12 +46,14 @@ class PesanController extends Controller
             'email' => "required",
             'nama' => 'required',
             'alamat' => 'required',
-            'varian' => 'required',
+            // 'varian1' => 'required',
+            // 'varian2' => 'required',
+            // 'varian3' => 'required',
             'jumlah' => 'required',
             'total' => 'required',
             'catatan' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg|max:1024|required',
-            'status' => 'required',
+            // 'image' => 'image|mimes:jpeg,png,jpg|max:1024|required',
+            // 'status' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -62,20 +64,26 @@ class PesanController extends Controller
             $pesan->email = $request->get('email');
             $pesan->nama = $request->get('nama');
             $pesan->alamat = $request->get('alamat');
-            $pesan->varian = $request->get('varian');
+            $varian = array('varian1'=>$request->get('varian1'),
+                'varian2'=>$request->get('varian2'),
+                'varian3'=>$request->get('varian3'),
+                'varian4'=>$request->get('varian4'),
+                );
+            $pesan->varian = json_encode($varian);
             $pesan->jumlah = $request->get('jumlah');
             $pesan->total = $request->get('total');
             $pesan->catatan = $request->get('catatan');
-            if ($request->hasFile('image')) {
-                $img = $request->file('image');
-                $filename = time() . '.' . $img->getClientOriginalExtension();
-                Storage::putFileAs("public/images/pesan", $img, $filename);
-            }
-            $pesan->image = $filename;
-            $pesan->status = $request->get('status');
+            // if ($request->hasFile('image')) {
+            //     $img = $request->file('image');
+            //     $filename = time() . '.' . $img->getClientOriginalExtension();
+            //     Storage::putFileAs("public/images/pesan", $img, $filename);
+            // }
+            // $pesan->image = $filename;
+            $pesan->status = "belum lunas";
             $pesan->save();
-            return redirect()->route('pesan.index');
+            // return redirect()->route('pesan.index');
         }
+
     }
 
     /**

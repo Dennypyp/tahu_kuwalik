@@ -4,7 +4,7 @@
 Route::group([
     'prefix' => 'admin',
     'namespace' => 'Admin',
-    'middleware' => 'auth'
+    'middleware' => ['auth'=>'CheckRole:admin']
 ], function () {
 
     Route::resource('dashboard', 'DashboardController');

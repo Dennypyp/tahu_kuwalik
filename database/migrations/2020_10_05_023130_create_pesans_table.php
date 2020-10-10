@@ -22,7 +22,7 @@ class CreatePesansTable extends Migration
             $table->bigInteger('jumlah');
             $table->bigInteger('total');
             $table->string('catatan');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('status');
             $table->timestamps();
         });

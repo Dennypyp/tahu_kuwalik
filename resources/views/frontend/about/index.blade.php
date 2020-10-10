@@ -70,10 +70,10 @@
                     <td>
                         {{$item->catatan}}
                     </td>
-                    
                     <td>
-                        {{$item->image}}
+                    <button type="button" data-toggle="modal" data-target="#exampleModal{{$item->id}}" class="btn btn-sm btn-primary">Upload Bukti</button>
                     </td>
+
                     <td>
                         {{$item->status}}
                     </td>
@@ -84,6 +84,33 @@
     </div>
 </section>
 
+<!-- Modal -->
+@foreach ($pesan as $item)
+<div class="modal fade" id="exampleModal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Upload Bukti Pembayaran</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                  <label for="exampleFormControlFile1">Upload Buktinya</label>
+                  <input type="file" class="form-control-file" name="image" id="exampleFormControlFile1">
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+@endforeach
 
 <!-- ======= Contact Section ======= -->
 <section id="contact" class="contact">
