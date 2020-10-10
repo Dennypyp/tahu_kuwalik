@@ -7,7 +7,7 @@ Route::name('frontend.')->group(function(){
         Route::resource('portofolio', 'PortofolioController');
         Route::resource('pesan', 'PesanController');
 
-        Route::group(['auth' => ['CheckRole:customer']], function () {
+        Route::group([  'middleware' => ['auth'=>'CheckRole:customer']], function () {
             Route::resource('about-us', 'AboutController');
         });
 
