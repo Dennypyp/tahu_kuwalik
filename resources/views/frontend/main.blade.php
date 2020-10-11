@@ -57,6 +57,7 @@
   <script src="{{asset('frontend/assets/vendor/venobox/venobox.min.js')}}"></script>
   <script src="{{asset('frontend/assets/vendor/aos/aos.js')}}"></script>
   <script src="{{asset('frontend/assets/js/main.js')}}"></script>
+  @yield('script')
 </body>
 
 </html>

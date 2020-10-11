@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use App\Pesan;
+use Illuminate\Support\Facades\Auth;
 
 class PesanController extends Controller
 {
@@ -59,30 +60,48 @@ class PesanController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator->errors());
         } else {
-            $pesan = new pesan();
-            // $pesan->id = $request->get('id');
-            $pesan->email = $request->get('email');
-            $pesan->nama = $request->get('nama');
-            $pesan->alamat = $request->get('alamat');
-            $varian = array(
-                'varian1' => $request->get('varian1'),
-                'varian2' => $request->get('varian2'),
-                'varian3' => $request->get('varian3'),
-                'varian4' => $request->get('varian4'),
-            );
-            $pesan->varian = json_encode($varian);
-            $pesan->jumlah = $request->get('jumlah');
-            $pesan->total = $request->get('total');
-            $pesan->catatan = $request->get('catatan');
-            // if ($request->hasFile('image')) {
-            //     $img = $request->file('image');
-            //     $filename = time() . '.' . $img->getClientOriginalExtension();
-            //     Storage::putFileAs("public/images/pesan", $img, $filename);
-            // }
-            // $pesan->image = $filename;
+            if(Auth::user()){
+                $pesan = new pesan();
+                $user = Auth::user();
+                $pesan->email = $user->email;
+                $pesan->nama = $user->name;
+                $pesan->alamat = $request->get('alamat');
+                $varian = array(
+                    'varian1' => $request->get('varian1'),
+                    'varian2' => $request->get('varian2'),
+                    'varian3' => $request->get('varian3'),
+                    'varian4' => $request->get('varian4'),
+                );
+                $pesan->varian = json_encode($varian);
+                $pesan->jumlah = $request->get('jumlah');
+                $pesan->total = $request->get('total');
+                $pesan->catatan = $request->get('catatan');
+
+            }else{
+                $pesan = new pesan();
+                $pesan->email = $request->get('email');
+                $pesan->nama = $request->get('nama');
+                $pesan->alamat = $request->get('alamat');
+                $varian = array(
+                    'varian1' => $request->get('varian1'),
+                    'varian2' => $request->get('varian2'),
+                    'varian3' => $request->get('varian3'),
+                    'varian4' => $request->get('varian4'),
+                );
+                $pesan->varian = json_encode($varian);
+                $pesan->jumlah = $request->get('jumlah');
+                $pesan->total = $request->get('total');
+                $pesan->catatan = $request->get('catatan');
+            }
             $pesan->status = "belum lunas";
             $pesan->save();
-            return redirect('/register');
+
+            if(Auth::user()){
+                return redirect('/about-us');
+            }else{
+                return redirect('/register');
+            }
+
         }
     }
 

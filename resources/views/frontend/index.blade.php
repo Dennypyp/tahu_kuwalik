@@ -279,11 +279,24 @@
                     @csrf
                         <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
+                        @if(Auth()->user())
+
+                        <input type="email" readonly value="{{Auth()->user()->email}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+
+                        @else
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                        @endif
+
                     </div>
                     <div class="form-group">
                     <label for="exampleInputEmail1">Nama Pelanggan</label>
+                    @if(Auth()->user())
+                    <input type="text" readonly value="{{Auth()->user()->name}}" class="form-control" id="exampleInputEmail1" name="nama">
+                    @else
                     <input type="text" class="form-control" id="exampleInputEmail1" name="nama">
+
+                    @endif
+
                     </div>
 
                     <div class="form-group">
@@ -332,11 +345,11 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Jumlah</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" name="jumlah">
+                        <input type="number" id="jumlah" class="form-control" id="exampleInputEmail1" name="jumlah">
                         </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Total</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="total">
+                    <input type="text" id="total" readonly class="form-control" id="exampleInputEmail1" name="total">
                     </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Catatan</label>
@@ -353,4 +366,17 @@
     </div>
 {{-- End Modal --}}
 
+@endsection
+@section('script')
+    <script>
+        $(document).ready(function(){
+            $('#jumlah').on('keyup', function(){
+                if($(this).val()!=undefined){
+                    var total = $(this).val() * 10000;
+                    var hasil = total.toString();
+                    $('#total').val(hasil);
+                }
+            })
+        })
+    </script>
 @endsection
