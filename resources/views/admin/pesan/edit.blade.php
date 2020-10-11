@@ -120,7 +120,7 @@
                                     <label class="form-control-label" for="image">Bukti Upload</label>
                                     <div class="form-group">
 
-                                        <img src="{{asset('storage/images/pesan/'.$pesan->image)}}" alt="" srcset="">
+                                        <a href="{{asset('storage/images/pesan/'.$pesan->image)}}" target="_blank">Cek Bukti</a>
                                         {{-- <input type="file" id="image" name="image" required class="form-control"> --}}
                                     </div>
                                 </div>
