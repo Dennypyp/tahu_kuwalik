@@ -32,7 +32,7 @@
                         </div>
                         @endif
                         <div class="pl-lg-4">
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label" for="email">Email</label>
@@ -45,16 +45,16 @@
                                         <input type="text" id="nama" name="nama" class="form-control" required placeholder="Nama">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
+                            </div> --}}
+                            {{-- <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="form-control-label" for="alamat">Alamat</label>
                                         <input type="text" id="alamat" name="alamat" class="form-control" required placeholder="Alamat">
                                     </div>
                                 </div>
-                            </div>
-                            <label class="form-control-label" for="varian">Varian</label>
+                            </div> --}}
+                            {{-- <label class="form-control-label" for="varian">Varian</label>
                             <div class="row">
                                 <div class="col-lg-3">
                                     <div class="form-group">
@@ -64,7 +64,7 @@
                                     </div>
                                     </div>
                                 </div>
-                                    
+
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                         <div class="form-check form-check-inline">
@@ -73,8 +73,8 @@
                                     </div>
                                     </div>
                                 </div>
-                                
-                                
+
+
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <div class="form-check form-check-inline">
@@ -83,18 +83,18 @@
                                     </div>
                                 </div>
                             </div>
-                                
+
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Rasa BBQ" name="varian">
                                                     <label class="form-check-label" for="inlineCheckbox2">Rasa BBQ</label>
                                             </div>
-                                        
+
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
+                            </div> --}}
+                            {{-- <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label" for="jumlah">Jumlah</label>
@@ -107,19 +107,21 @@
                                         <input type="text" id="total" name="total" class="form-control" required placeholder="Total">
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <!-- Description -->
                         <div class="pl-lg-4">
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label class="form-control-label">Catatan</label>
                                 <textarea rows="4" class="form-control" name="catatan" required></textarea>
-                            </div>
+                            </div> --}}
                             <div class="row">
                                 <div class="col-lg-6">
+                                    <label class="form-control-label" for="image">Bukti Upload</label>
                                     <div class="form-group">
-                                        <label class="form-control-label" for="image">Image</label>
-                                        <input type="file" id="image" name="image" required class="form-control">
+
+                                        <img src="{{asset('storage/images/pesan/'.$pesan->image)}}" alt="" srcset="">
+                                        {{-- <input type="file" id="image" name="image" required class="form-control"> --}}
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -129,7 +131,7 @@
                                             <option value="Belum Lunas">Belum Lunas</option>
                                             <option value="Lunas">Lunas</option>
                                         </select>
-    
+
                                     </div>
                                 </div>
                             </div>

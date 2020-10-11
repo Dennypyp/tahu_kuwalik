@@ -12,10 +12,12 @@
           <li class="active"><a href="{{route('frontend.index')}}">Home</a></li>
           <li><a href="{{route('frontend.portofolio.index')}}">Varian</a></li>
 
-        
 
-          @if(isset(Auth()->user()->role)=="customer")
-          <li><a href="{{route('frontend.about-us.index')}}">About Us</a></li>
+
+          @if(Auth()->user())
+            @if(Auth()->user()->role == "customer")
+            <li><a href="{{route('frontend.about-us.index')}}">About Us</a></li>
+            @endif
           @endif
 
 
