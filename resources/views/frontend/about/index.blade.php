@@ -75,7 +75,14 @@
                         {{$item->catatan}}
                     </td>
                     <td>
-                    <button type="button" data-toggle="modal" data-target="#exampleModal{{$item->id}}" class="btn btn-sm btn-primary">Upload Bukti</button>
+                        @if($item->image == null)
+                        <button type="button" data-toggle="modal" data-target="#exampleModal{{$item->id}}" class="btn btn-sm btn-primary">Upload Bukti</button>
+                        @else
+                        <div class="alert alert-primary" role="alert">
+                            Sudah upload bukti
+                          </div>
+                        @endif
+
                     </td>
 
                     <td>
@@ -90,6 +97,8 @@
 
 <!-- Modal -->
 @foreach ($pesan as $item)
+
+
 <div class="modal fade" id="exampleModal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -100,17 +109,20 @@
           </button>
         </div>
         <div class="modal-body">
-            <form>
+        <form method="POST" action="{{route('frontend.pesan.update',[$item->id])}}" enctype="multipart/form-data">
+                @csrf
+                {{method_field('PUT')}}
                 <div class="form-group">
                   <label for="exampleFormControlFile1">Upload Buktinya</label>
                   <input type="file" class="form-control-file" name="image" id="exampleFormControlFile1">
                 </div>
-              </form>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary">Save changes</button>
         </div>
+    </form>
       </div>
     </div>
   </div>

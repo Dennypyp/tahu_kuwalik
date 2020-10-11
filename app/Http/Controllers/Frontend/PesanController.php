@@ -64,11 +64,12 @@ class PesanController extends Controller
             $pesan->email = $request->get('email');
             $pesan->nama = $request->get('nama');
             $pesan->alamat = $request->get('alamat');
-            $varian = array('varian1'=>$request->get('varian1'),
-                'varian2'=>$request->get('varian2'),
-                'varian3'=>$request->get('varian3'),
-                'varian4'=>$request->get('varian4'),
-                );
+            $varian = array(
+                'varian1' => $request->get('varian1'),
+                'varian2' => $request->get('varian2'),
+                'varian3' => $request->get('varian3'),
+                'varian4' => $request->get('varian4'),
+            );
             $pesan->varian = json_encode($varian);
             $pesan->jumlah = $request->get('jumlah');
             $pesan->total = $request->get('total');
@@ -83,7 +84,6 @@ class PesanController extends Controller
             $pesan->save();
             return redirect('/register');
         }
-
     }
 
     /**
@@ -117,7 +117,24 @@ class PesanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make(request()->all(), [
+            'image' => 'image|mimes:jpeg,png,jpg|max:1024|required',
+        ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator->errors());
+        }
+        else{
+            $pesan = Pesan::findOrfail($id);
+            if ($request->hasFile('image')) {
+                $img = $request->file('image');
+                $filename = time() . '.' . $img->getClientOriginalExtension();
+                Storage::putFileAs("public/images/pesan", $img, $filename);
+            }
+            $pesan->image = $filename;
+            $pesan->save();
+            return redirect('about-us');
+        }
+
     }
 
     /**
