@@ -7,8 +7,12 @@
         <div class="d-flex justify-content-between align-items-center">
             <h2>About Us</h2>
             <ol>
-                <li><a href="/">Home</a></li>
-                <li>About</li>
+                @if(isset(Auth()->user()->name))
+                <form  action="{{ route('logout') }}" method="POST">
+                  @csrf
+                  <li><button type="submit" class="btn btn-primary">Logout</button></li>
+                </form>
+                @endif
             </ol>
         </div>
 
