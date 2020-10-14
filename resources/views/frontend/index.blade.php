@@ -8,8 +8,8 @@
             <h2>Home</h2>
             <ol>
                 @if(!isset(Auth()->user()->name))
-                <form  action="{{ route('login') }}" method="POST">
-                  @csrf
+                <form  action="{{route('login') }}" method="GET">
+                  
                   <li><button type="submit" class="btn btn-warning">Login</button></li>
                 </form>
                 @endif

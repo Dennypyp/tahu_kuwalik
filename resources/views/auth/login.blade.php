@@ -113,7 +113,7 @@
                                     </label>
                                 </div>
                                 <div class="text-center text-muted">
-                                    <a href="">Register</a>
+                                    <a href="/register">Register</a>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary my-4">Sign in</button>
