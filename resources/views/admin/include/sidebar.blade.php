@@ -24,12 +24,6 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Request::path() ==  'admin/team' ? 'active' : ''  }}" href="{{route('team.index')}}">
-                            <i class="ni ni-bullet-list-67 {{ Request::path() ==  'admin/team' ? 'text-primary' : 'text-default'  }}"></i>
-                            <span class="nav-link-text">Team</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link {{ Request::path() ==  'admin/service' ? 'active' : ''  }}" href="{{route('service.index')}}">
                             <i class="ni ni-bullet-list-67 {{ Request::path() ==  'admin/service' ? 'text-primary' : 'text-default'  }}"></i>
                             <span class="nav-link-text">Service</span>

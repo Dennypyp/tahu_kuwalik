@@ -1,6 +1,25 @@
 @extends('frontend.main')
 @section('herosection')
-<section id="hero" class="d-flex align-items-center">
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs" style="margin-bottom: -50px">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Home</h2>
+            <ol>
+                @if(!isset(Auth()->user()->name))
+                <form  action="{{ route('login') }}" method="POST">
+                  @csrf
+                  <li><button type="submit" class="btn btn-warning">Login</button></li>
+                </form>
+                @endif
+            </ol>
+        </div>
+
+    </div>
+</section>
+<!-- End Breadcrumbs -->
+<section id="hero" class="d-flex align-items-center" style="margin-bottom: 50px">
 
     <div class="container">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -32,7 +51,7 @@
 @endsection
 @section('content')
 <!-- ======= About Us Section ======= -->
-<section id="about" class="about">
+<section id="about" class="about section-bg">
     <div class="container">
 
         <div class="section-title" data-aos="fade-up">
@@ -47,63 +66,25 @@
                 </p>
                 <!-- <a href="#" class="btn-learn-more">Learn More</a> -->
             </div>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-aos="fade-up" data-aos-delay="300">
+            
+            <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="150">
+
+                <button type="button" class="btn btn-dark btn-lg btn-block" data-toggle="modal" data-target="#exampleModal" data-aos="fade-up" data-aos-delay="300">
                 Pesan Sekarang!!!
               </button>
-            {{-- <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="150">
+                    {{-- <a href="https://api.whatsapp.com/send?phone=628155106629" target="_blank" class="pesan btn btn-dark btn-lg btn-block">Pesan Sekarang!!!</a> --}}
 
-                    <a href="https://api.whatsapp.com/send?phone=628155106629" target="_blank" class="pesan btn btn-dark btn-lg btn-block">Pesan Sekarang!!!</a>
-
-            </div> --}}
+            </div>
         </div>
 
-    </div>
-</section><!-- End About Us Section -->
-
-<!-- ======= Counts Section ======= -->
-<section id="counts" class="counts">
-    <div class="container">
-        <div class="row">
-            @foreach ($about as $item)
-            @if ($item->category=="Ranah Tahu Kuwalik")
-            <div class="col-lg-6 order-1 order-lg-2 d-flex flex-column justify-content-center" data-aos="fade-left"
-                data-aos-delay="200">
-                <h1 data-aos="fade-up">{{$item->title}}</h1>
-                <p data-aos="fade-up" class="mt-3">
-                    {{$item->description}}
-                </p>
-            </div>
-
-            <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 hero-img" data-aos="fade-up">
-                <img src="{{asset('frontend/assets/img/robot.png')}}" class="img-fluid" alt="">
-            </div>
-            @endif
-            @endforeach
-        </div>
-
-        <div class="row">
-            @foreach ($about as $item)
-            @if ($item->category=="Program Tahu Kuwalik")
-            <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
-                <img src="{{asset('frontend/assets/img/img2.png')}}" class="img-fluid" alt="">
-            </div>
-
-            <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center"
-                data-aos="fade-up">
-                <h1 data-aos="fade-up">{{$item->title}}</h1>
-                <p data-aos="fade-up" class="mt-3">
-                    {{$item->description}}
-                </p>
-            </div>
-            @endif
-            @endforeach
-        </div>
     </div>
 </section>
-<!-- End Counts Section -->
+<!-- End About Us Section -->
+
+
 
 <!-- ======= Services Section ======= -->
-<section id="services" class="services section-bg">
+<section id="services" class="services">
     <div class="container">
 
         <div class="section-title" data-aos="fade-up">
@@ -132,7 +113,7 @@
 <!-- End Services Section -->
 
 <!-- ======= Portfolio Section ======= -->
-<section id="portfolio" class="portfolio">
+<section id="portfolio" class="portfolio section-bg">
     <div class="container">
 
         <div class="section-title" data-aos="fade-up">
@@ -169,47 +150,6 @@
 </section>
 <!-- End Portfolio Section -->
 
-<!-- ======= Team Section ======= -->
-<section id="team" class="team section-bg">
-    <div class="container">
-
-        <div class="section-title" data-aos="fade-up">
-            <h2>Team</h2>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                @foreach ($team as $item)
-
-
-                <div class="member" data-aos="fade-up" data-aos-delay="100">
-                    <div class="member-img">
-                        <img src="{{asset('storage/images/team/'.$item->image)}}" class="img-fluid" alt="">
-                        <div class="social">
-                            <a href=""><i class="icofont-twitter"></i></a>
-                            <a href=""><i class="icofont-facebook"></i></a>
-                            <a href=""><i class="icofont-instagram"></i></a>
-                            <a href=""><i class="icofont-linkedin"></i></a>
-                        </div>
-                    </div>
-                    <div class="member-info">
-                        <h4>{{$item->name}}</h4>
-                        <span>{{$item->status}}</span>
-                    </div>
-                </div>
-            </div>
-            @if($loop->iteration % 1 == 0)
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                @endif
-
-                @endforeach
-            </div>
-
-        </div>
-
-    </div>
-</section>
-<!-- End Team Section -->
 
 <!-- ======= Contact Section ======= -->
 <section id="contact" class="contact">
@@ -263,6 +203,12 @@
     </div>
 </section>
 <!-- End Contact Section -->
+
+{{-- Whatsapp --}}
+<div class="fixed-bottom">
+    <a href="https://api.whatsapp.com/send?phone=628155106629" target="_blank"><img src="{{asset('frontend/assets/img/chatwa.png')}}" alt="Chat Whatsapp" width="10%" style="float: right; margin: 20px; margin-right: 70px"></a>
+</div>
+{{-- End Whatsapp --}}
 
 {{-- Modal --}}
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -353,7 +299,7 @@
                     </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Catatan</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="catatan"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="catatan" placeholder="Tuliskan detail jumlah varian & catatan lain di sini"></textarea>
                         </div>
             </div>
                 <div class="modal-footer">
@@ -372,7 +318,14 @@
         $(document).ready(function(){
             $('#jumlah').on('keyup', function(){
                 if($(this).val()!=undefined){
-                    var total = $(this).val() * 10000;
+                    if($(this).val()==3){
+                        var total = $(this).val() * 8300;
+                    }else if($(this).val()==5){
+                        var total = $(this).val() * 8000;
+                    }
+                    else{
+                        var total = $(this).val() * 10000;
+                    }
                     var hasil = total.toString();
                     $('#total').val(hasil);
                 }

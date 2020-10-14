@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
     <meta name="author" content="Creative Tim">
-    <title>Tahu Kuwalik Admin - Login</title>
+    <title>Tahu Kuwalik - Login</title>
 
     <!-- Favicon -->
     <link rel="icon" href="{{asset('frontend/assets/img/logo_tahu.png')}}" type="image/png">
@@ -71,7 +71,7 @@
                     <div class="card bg-secondary border-0 mb-0">
                         <div class="card-body px-lg-5 py-lg-5">
                             <div class="text-center text-muted mb-4">
-                                <h3>SignIn Tahu Kuwalik Admin</h3>
+                                <h3>Sign In Tahu Kuwalik</h3>
                             </div>
                             <form role="form" action="{{ route('login') }}" method="POST">
                                 @csrf
@@ -111,6 +111,9 @@
                                     <label class="custom-control-label" for="remember">
                                         <span class="text-muted">Remember me</span>
                                     </label>
+                                </div>
+                                <div class="text-center text-muted">
+                                    <a href="">Register</a>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary my-4">Sign in</button>

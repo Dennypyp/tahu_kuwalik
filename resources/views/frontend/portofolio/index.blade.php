@@ -118,4 +118,10 @@
     </div>
 </section>
 <!-- End Contact Section -->
+
+{{-- Whatsapp --}}
+<div class="fixed-bottom">
+    <a href="https://api.whatsapp.com/send?phone=628155106629" target="_blank"><img src="{{asset('frontend/assets/img/chatwa.png')}}" alt="Chat Whatsapp" width="10%" style="float: right; margin: 20px; margin-right: 70px"></a>
+</div>
+{{-- End Whatsapp --}}
 @endsection

@@ -6,10 +6,9 @@ Route::group([
     'namespace' => 'Admin',
     'middleware' => ['auth'=>'CheckRole:admin,customer']
 ], function () {
-
+    Route::get('laporan', 'PesanController@Laporan');
     Route::resource('dashboard', 'DashboardController');
     Route::resource('varian', 'VarianController');
-    Route::resource('team', 'TeamController');
     Route::resource('about-us', 'AboutController');
     Route::resource('service', 'ServiceController');
     Route::resource('carousel', 'CarouselController');

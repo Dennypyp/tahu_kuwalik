@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PesanExport;
 use App\Pesan;
 
 class PesanController extends Controller
@@ -161,5 +163,10 @@ class PesanController extends Controller
         if ($pesan->delete()) {
             echo "success";
         }
+    }
+
+    public function Laporan()
+    {
+        return Excel::download(new PesanExport, 'Laporan.xlsx');
     }
 }

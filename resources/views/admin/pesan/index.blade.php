@@ -30,7 +30,7 @@
                             <h3 class="mb-0 text-white">Pesan List</h3>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{route('pesan.create')}}" class="btn btn-sm btn-primary">Create Pesan</a>
+                            <a href="/admin/laporan" class="btn btn-sm btn-primary">Export Laporan</a>
                         </div>
                     </div>
                 </div>
@@ -41,6 +41,7 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Nama</th>
+                                <th scope="col">Alamat</th>
                                 <th scope="col">Varian</th>
                                 <th scope="col">Jumlah</th>
                                 <th scope="col">Total</th>
@@ -63,7 +64,37 @@
                                     {{$item->nama}}
                                 </td>
                                 <td>
-                                    {{$item->varian}}
+                                    {{$item->alamat}}
+                                </td>
+                                <td>
+                                    @php
+                                $varian=json_decode($item->varian);
+                                
+                            @endphp
+                            @if ($varian->varian1!=null)
+                                {{$varian->varian1}},
+                                
+                            @else
+                                
+                            @endif
+                            @if ($varian->varian2!=null)
+                                {{$varian->varian2}},
+                                
+                            @else
+                                
+                            @endif
+                            @if ($varian->varian3!=null)
+                                {{$varian->varian3}},
+                                
+                            @else
+                                
+                            @endif
+                            @if ($varian->varian4!=null)
+                                {{$varian->varian4}},
+                                
+                            @else
+                                
+                            @endif
                                 </td>
                                 <td>
                                     {{$item->jumlah}}
