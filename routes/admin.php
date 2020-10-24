@@ -7,6 +7,7 @@ Route::group([
     'middleware' => ['auth'=>'CheckRole:admin,customer']
 ], function () {
     Route::get('laporan', 'PesanController@Laporan');
+    Route::get("dashboardchart","DashboardController@chartku");
     Route::resource('dashboard', 'DashboardController');
     Route::resource('varian', 'VarianController');
     Route::resource('about-us', 'AboutController');
