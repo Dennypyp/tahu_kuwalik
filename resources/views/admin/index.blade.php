@@ -14,10 +14,10 @@
               </ol>
             </nav>
           </div>
-          <div class="col-lg-6 col-5 text-right">
+          {{-- <div class="col-lg-6 col-5 text-right">
             <a href="#" class="btn btn-sm btn-neutral">New</a>
             <a href="#" class="btn btn-sm btn-neutral">Filters</a>
-          </div>
+          </div> --}}
         </div>
         <!-- Card stats -->
         <div class="row">
@@ -27,8 +27,10 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">Total traffic</h5>
-                    <span class="h2 font-weight-bold mb-0">350,897</span>
+                    <h5 class="card-title text-uppercase text-muted mb-0">Pesanan Lunas</h5>
+                    <span class="h2 font-weight-bold mb-0">
+                      {{$Lunas}}
+                    </span>
                   </div>
                   <div class="col-auto">
                     <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -36,10 +38,7 @@
                     </div>
                   </div>
                 </div>
-                <p class="mt-3 mb-0 text-sm">
-                  <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                  <span class="text-nowrap">Since last month</span>
-                </p>
+               
               </div>
             </div>
           </div>
@@ -49,8 +48,8 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
-                    <span class="h2 font-weight-bold mb-0">2,356</span>
+                    <h5 class="card-title text-uppercase text-muted mb-0">Pesanan Belum Lunas</h5>
+                    <span class="h2 font-weight-bold mb-0">{{$belumlunas}}</span>
                   </div>
                   <div class="col-auto">
                     <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
@@ -58,14 +57,14 @@
                     </div>
                   </div>
                 </div>
-                <p class="mt-3 mb-0 text-sm">
+                {{-- <p class="mt-3 mb-0 text-sm">
                   <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
                   <span class="text-nowrap">Since last month</span>
-                </p>
+                </p> --}}
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-md-6">
+          {{-- <div class="col-xl-3 col-md-6">
             <div class="card card-stats">
               <!-- Card body -->
               <div class="card-body">
@@ -108,7 +107,7 @@
                 </p>
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
       </div>
     </div>
@@ -146,7 +145,8 @@
             <!-- Chart -->
             <div class="chart">
               <!-- Chart wrapper -->
-              <canvas id="chart-sales-dark" class="chart-canvas"></canvas>
+              <canvas id="myChart" width="400" height="400"></canvas>
+              {{-- <canvas id="chart-sales-dark" class="chart-canvas"></canvas> --}}
             </div>
           </div>
         </div>
@@ -173,4 +173,46 @@
    
 
   </div>
+@endsection
+
+@section('script')
+    <script>
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+              labels: ['Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+              datasets: [{
+                  label: '# of Votes',
+                  data: [12, 19, 3, 5, 2, 3],
+                  backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)'
+                  ],
+                  borderColor: [
+                      'rgba(255, 99, 132, 1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)'
+                  ],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true
+                      }
+                  }]
+              }
+          }
+      });
+    </script>
 @endsection

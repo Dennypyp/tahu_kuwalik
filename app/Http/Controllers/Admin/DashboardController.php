@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Pesan;
+use Illuminate\Support\Carbon;
 
 class DashboardController extends Controller
 {
@@ -15,7 +17,12 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view("admin.index");
+        $lunas=Pesan::where("status", "Lunas")->count();
+        $belum=Pesan::where("status", "belum lunas")->count();
+        $jual=Pesan::select("jumlah","created_at")->get()->groupby(function($data){
+            return Carbon::parse($data->created_at)->format("m");
+        });
+        return view("admin.index",["Lunas"=>$lunas,"belumlunas"=>$belum,"jual"=>$jual]);
     }
 
     /**
@@ -26,6 +33,7 @@ class DashboardController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
