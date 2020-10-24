@@ -39,6 +39,7 @@
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">ID</th>
+                    <th scope="col">Tangal Pesan</th>
                     <th scope="col">Email</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Alamat</th>
@@ -48,6 +49,7 @@
                     <th scope="col">Catatan</th>
                     <th scope="col">Bukti</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Kwitansi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -56,6 +58,13 @@
                         <th scope="row">
                             {{$loop->iteration}}
                         </th>
+                        <td>
+                            @php
+                                $tanggal=strtotime($item->created_at);
+                                $date=date("d-m-y",$tanggal);
+                            @endphp
+                            {{$date}}
+                        </td>
                         <td>
                             {{$item->email}}
                         </td>
@@ -117,6 +126,9 @@
     
                         <td>
                             {{$item->status}}
+                        </td>
+                        <td>
+                            <a href="/kwitansi/{{$item->id}}">Cetak Kwitansi</a>
                         </td>
                     </tr>
                     @endforeach

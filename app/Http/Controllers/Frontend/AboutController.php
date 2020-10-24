@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use PDF;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use App\Pesan;
+use Dompdf\Adapter\PDFLib;
 
 class AboutController extends Controller
 {
@@ -125,5 +127,11 @@ class AboutController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function kwitansi($id){
+        $pesan=Pesan::find($id);
+        $pdf=PDF::loadview("frontend/about/kwitansi", ["pesan"=>$pesan]);
+        return $pdf->download("kwitansi.pdf");
     }
 }
