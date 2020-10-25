@@ -96,6 +96,7 @@ class DashboardController extends Controller
     public function chartku()
     {
         $pesan = DB::table('pesans')->select(DB::raw('sum(jumlah) as `data`'),DB::raw("MONTH(created_at) as month"))
+        ->where("status", "Lunas")
         ->groupby('month')
         ->get();
         $data["pesan"] = $pesan;
