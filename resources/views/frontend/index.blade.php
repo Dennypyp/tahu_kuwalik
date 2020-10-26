@@ -9,9 +9,15 @@
             <ol>
                 @if(!isset(Auth()->user()->name))
                 <form  action="{{route('login') }}" method="GET">
-                  
-                  <li><button type="submit" class="btn btn-warning">Login</button></li>
+                <li><button type="submit" class="btn btn-warning">Login</button></li>
                 </form>
+                @endif
+                @if(Auth()->user())
+                @if(Auth()->user()->role == "admin")
+                <form  action="/admin/dashboard" method="GET">
+                    <li><button type="submit" class="btn btn-warning">Ke Halaman Admin</button></li>
+                    </form>
+                @endif
                 @endif
             </ol>
         </div>
