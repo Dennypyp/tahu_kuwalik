@@ -16,7 +16,7 @@ class CreateVariansTable extends Migration
         Schema::create('varians', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->bigInteger('harga');
+            $table->bigInteger('modal');
             $table->string('description');
             $table->string('image');
             $table->timestamps();

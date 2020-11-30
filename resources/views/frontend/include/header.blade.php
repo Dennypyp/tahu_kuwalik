@@ -16,7 +16,7 @@
 
           @if(Auth()->user())
             @if(Auth()->user()->role == "customer")
-            <li><a href="{{route('frontend.about-us.index')}}">About Us</a></li>
+            <li><a href="{{route('frontend.about-us.index')}}">Order</a></li>
             @endif
           @endif
 

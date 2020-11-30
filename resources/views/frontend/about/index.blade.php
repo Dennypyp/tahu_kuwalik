@@ -5,7 +5,7 @@
     <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-            <h2>About Us</h2>
+            <h2>Order</h2>
             <ol>
                 @if(isset(Auth()->user()->name))
                 <form  action="{{ route('logout') }}" method="POST">
@@ -27,10 +27,14 @@
 <section id="about">
     <div class="container">
         <div class="section-title" data-aos="fade-up">
-            <h2>Apa itu Tahu Kuwalik ?</h2>
+            <h2>Bagaimana metode pembayarannya ?</h2>
         </div>
         <p align="center" class="mt-3" data-aos="fade-up">
-            Tahu Kuwalik adalah makanan ringan yang sangat renyah. Terbuat dari tahu yang mempunyai beberapa varian.
+            Pembayaran dapat dilakukan dengan metode transfer pada nomor rekening berikut:
+            <br>
+            <b>BCA 2150299635 a/n Abu Hanif Rahmatullah</b>
+            
+            
         </p>
     </div>
     <section id="table-pesan" data-aos="fade-up">
@@ -185,7 +189,7 @@
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="contact-about">
                     <h3 style="color: #a68b2c;">Tahu Kuwalik</h3>
-                    <p>Memberikan pelayanan untuk pembuatan prototype sekaligus produk jadi. </p>
+                    <p>Selalu menyajikan kerenyahan untuk anda </p>
 
                 </div>
             </div>

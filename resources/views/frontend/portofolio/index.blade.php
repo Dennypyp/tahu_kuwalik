@@ -79,7 +79,7 @@
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="contact-about">
                     <h3 style="color: #a68b2c;">Tahu Kuwalik</h3>
-                    <p>Memberikan pelayanan untuk pembuatan prototype sekaligus produk jadi. </p>
+                    <p>Selalu menyajikan kerenyahan untuk anda </p>
 
                 </div>
             </div>
